@@ -2,7 +2,6 @@ package com.ComputerCourse;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Scanner;
@@ -10,15 +9,21 @@ import java.util.Scanner;
 public class ComputerCourse {
 
 	public static void main(String[] args) {
-      File f = new File("D:/Temp.txt");
-      try (Scanner sc = new Scanner(f, StandardCharsets.UTF_8.name())) {
+      File f = new File("src/Temp.txt");
+      Boolean arr[] =  new Boolean[5]; 
+      int i=0;
+      boolean isBalanced = false;
+      try (Scanner sc = new Scanner(f)) {
           while (sc.hasNextLine()){
               String expr = sc.nextLine();
               if (BalacedExp(expr)) 
-                  System.out.println("Balanced "); 
+            	  isBalanced = true;
               else
-                  System.out.println("Not Balanced "); 
-          } 
+            	  isBalanced = false;
+              arr[i]= isBalanced;
+              System.out.println(arr[i]);
+              i++;
+             } 
           }
       catch (IOException e) {
           e.printStackTrace();
